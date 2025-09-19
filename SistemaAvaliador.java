@@ -1,20 +1,23 @@
-import java.util.*;
+import javax.swing.JOptionPane;
 
 public class SistemaAvaliador{
   
+  public  String nomeAluno;
   public  double notaProva1;
   public double notaProva2;
   public double notaTrabalho;
   
   public SistemaAvaliador(){}
   
-  public SistemaAvaliador(double notaProva1, double notaProva2, double notaTrabalho){
+  public SistemaAvaliador(String nomeAluno, double notaProva1, double notaProva2, double notaTrabalho){
+    this.nomeAluno = nomeAluno;
     this.notaProva1 = notaProva1;
     this.notaProva2 = notaProva2;
     this.notaTrabalho = notaTrabalho;
     
   }
   public void lerDados(){
+  nomeAluno = JOptionPane.showInputDialog("Nome do aluno:");
   notaProva1 = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota da Prova 1:"));
   notaProva2 = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota da Prova 2:"));
   notaTrabalho = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota do trabalho:"));
@@ -34,7 +37,7 @@ public class SistemaAvaliador{
   sistema.lerDados();
   double media = sistema.calculaMedia();
   String resultado = sistema.resultadoFinal();
-  JOptionPane.showMessageDialog(null,
-            "Média: " + String.format("%.2f", media) + "\nSituação: " + resultado);
+  JOptionPane.showMessageDialog(null," Aluno:" + sistema.nomeAluno +
+            "\nMédia: " + String.format("%.2f", media) + "\nSituação: " + resultado);
   }
 }
