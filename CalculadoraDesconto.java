@@ -1,12 +1,14 @@
-package PraticasAP1;
+
 import java.util.Scanner;
 
 public class CalculadoraDesconto {
-    private double valor;
+    private String nomeProduto ;
+    private double valorProduto;
     private double desconto;
 
-    public  CalculadoraDesconto(double valor, double desconto){
-        this.valor=valor;
+    public  CalculadoraDesconto(String nomeProduto, double valorProduto, double desconto){
+        this.nomeProduto = nomeProduto;
+        this.valorProduto = valorProduto;
         this.desconto=desconto;
     }
     CalculadoraDesconto(  ){
@@ -14,17 +16,19 @@ public class CalculadoraDesconto {
     }
     public void lerValor(){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o  nome  do produto");
+        nomeProduto = scanner.nextLine();
         System.out.println("Digite o  valor do produto");
-        valor = scanner.nextDouble();
-        System.out.println("Digite o  valor do desconto");
+        valorProduto = scanner.nextDouble();
+        System.out.println("Digite o  percentual de desconto");
         desconto = scanner.nextDouble();
         scanner.close();
     }
     public  double calculaDesconto(){
-        return  valor * (desconto/100);
+        return  valorProduto * (desconto/100);
     }
     public  void imprimeResultado(){
-        System.out.println("R$" + calculaDesconto() +  "  é valor do produto já com o desconto");
+        System.out.println(" Produto: " + nomeProduto + "\nR$" + calculaDesconto() +  "  é valor do produto já com o desconto");
     }
 
     public static void main(String[] args) {
